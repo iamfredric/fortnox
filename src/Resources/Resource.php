@@ -48,6 +48,17 @@ abstract class Resource
         return new static($response[self::getResourceKey()]);
     }
 
+    public static function findBy(string $key, mixed $value): ?static
+    {
+        $response = Fortnox::request('GET', self::getUrl(), [
+            $key => $value
+        ]);
+
+        return isset($response[self::getResourceKey()][0])
+            ? new static($response[self::getResourceKey()][0])
+            : null;
+    }
+
     /**
      * @param array<string, mixed> $data
      * @return Resource

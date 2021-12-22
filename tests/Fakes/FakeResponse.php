@@ -20,7 +20,7 @@ class FakeResponse implements ResponseInterface
         return $this->data;
     }
 
-    public function body()
+    public function body(): mixed
     {
         return 'Todo';
     }

@@ -25,7 +25,6 @@ class FakeClient implements ClientInterface
 
     public function request(string $method, string $url, array $data = []): ResponseInterface
     {
-        die(var_dump(self::$responses));
         return new FakeResponse(
             self::$responses[$method][$url] ?? null
         );
