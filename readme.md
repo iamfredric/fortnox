@@ -147,7 +147,7 @@ composer run sniff
 
 # Contributing
 
-Contributions are **welcome** and will be fully.
+Contributions are **welcome**.
 
 ## Procedure
 
