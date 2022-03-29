@@ -45,7 +45,7 @@ class Fortnox
     {
         return self::AUTH_URL . '?'.http_build_query([
             'client_id' => self::$clientId,
-            'redirect_url' => self::$redirectUrl,
+            'redirect_uri' => self::$redirectUrl,
             'scope' => self::$scope,
             'response_type' => 'code',
             'state' => 'offline'

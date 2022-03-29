@@ -13,7 +13,7 @@ class AuthorizationsTest extends TestCase
     function it_generates_auth_url()
     {
         $this->assertEquals(
-            'https://apps.fortnox.se/oauth-v1/auth?client_id=test_client&redirect_url=https%3A%2F%2Fexample.com%2Fcallback&scope=test&response_type=code&state=offline',
+            'https://apps.fortnox.se/oauth-v1/auth?client_id=test_client&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&scope=test&response_type=code&state=offline',
             Fortnox::authUrl()
         );
     }
