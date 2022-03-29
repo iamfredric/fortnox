@@ -131,9 +131,19 @@ abstract class Resource
         return $this->attributes;
     }
 
-    public function __get(string $name): mixed
+    public function get(string $key): mixed
     {
-        return $this->attributes[$name] ?? null;
+        return $this->attributes[$key] ?? null;
+    }
+
+    public function getKey(): mixed
+    {
+        return $this->get($this->getIdKey());
+    }
+
+    public function __get(string $key): mixed
+    {
+        return $this->get($key);
     }
 
     public function __set(string $name, mixed $value): void
