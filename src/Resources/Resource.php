@@ -61,10 +61,10 @@ abstract class Resource
 
     /**
      * @param array<string, mixed> $data
-     * @return Resource
+     * @return static
      * @throws \Iamfredric\Fortnox\Exceptions\AuthenticatableNotSetException
      */
-    public static function create(array $data): Resource
+    public static function create(array $data): static
     {
         $response = Fortnox::request('POST', self::getUrl(), [
             self::getResourceKey() => $data
@@ -75,10 +75,10 @@ abstract class Resource
 
     /**
      * @param array<mixed> $data
-     * @return $this
+     * @return static
      * @throws \Iamfredric\Fortnox\Exceptions\AuthenticatableNotSetException
      */
-    public function update(array $data): Resource
+    public function update(array $data): static
     {
         $response = Fortnox::request('PUT', self::getUrl($this->attributes[$this->getIdKey()]), [
             self::getResourceKey() => $data
