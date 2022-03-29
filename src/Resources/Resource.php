@@ -67,9 +67,7 @@ abstract class Resource
     public static function create(array $data): Resource
     {
         $response = Fortnox::request('POST', self::getUrl(), [
-            'json' => [
-                self::getResourceKey() => $data
-            ]
+            self::getResourceKey() => $data
         ]);
 
         return new static($response[self::getResourceKey()]);
@@ -83,9 +81,7 @@ abstract class Resource
     public function update(array $data): Resource
     {
         $response = Fortnox::request('PUT', self::getUrl($this->attributes[$this->getIdKey()]), [
-            'json' => [
-                self::getResourceKey() => $data
-            ]
+            self::getResourceKey() => $data
         ]);
 
         $this->attributes = $response[self::getResourceKey()];
@@ -96,9 +92,7 @@ abstract class Resource
     public function save(): static
     {
         Fortnox::request('PUT', self::getUrl($this->attributes[$this->getIdKey()]), [
-            'json' => [
-                self::getResourceKey() => $this->attributes
-            ]
+            self::getResourceKey() => $this->attributes
         ]);
 
         return $this;
