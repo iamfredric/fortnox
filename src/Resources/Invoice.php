@@ -2,6 +2,8 @@
 
 namespace Iamfredric\Fortnox\Resources;
 
+use Iamfredric\Fortnox\Fortnox;
+
 /**
  * @property-read double $AdministrationFee
  * @property-read double $AdministrationFeeVAT
@@ -96,5 +98,12 @@ class Invoice extends Resource
     protected function getIdKey(): string
     {
         return 'DocumentNumber';
+    }
+
+    public static function send(int $id): static
+    {
+        $response = Fortnox::request('GET', self::getUrl("{$id}/email"));
+
+        return new static($response[self::getResourceKey()]);
     }
 }
