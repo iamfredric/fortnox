@@ -7,6 +7,7 @@ use Iamfredric\Fortnox\Resources\Customer;
 use Iamfredric\Fortnox\Tests\Fakes\AuthenticatableFake;
 use Iamfredric\Fortnox\Tests\Fakes\FakeClient;
 use Iamfredric\Fortnox\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class CustomersTest extends TestCase
 {
@@ -18,7 +19,7 @@ class CustomersTest extends TestCase
         parent::setUp();
     }
 
-    /** @test */
+    #[Test]
     function all_customers_can_be_fetched()
     {
         $customers = Customer::all();
@@ -31,7 +32,7 @@ class CustomersTest extends TestCase
         $this->assertEquals('2', $customers[1]['CustomerNumber']);
     }
 
-    /** @test */
+    #[Test]
     function a_single_customer_can_be_fetched()
     {
         $customer = Customer::find(1);
@@ -39,7 +40,7 @@ class CustomersTest extends TestCase
         $this->assertEquals('Test Customer', $customer->Name);
     }
 
-    /** @test */
+    #[Test]
     function a_customer_can_be_created()
     {
         $customer = Customer::create([
@@ -49,7 +50,7 @@ class CustomersTest extends TestCase
         $this->assertEquals('Acme INC', $customer->Name);
     }
 
-    /** @test */
+    #[Test]
     function a_customer_can_be_updated()
     {
         $customer = new Customer([
@@ -63,7 +64,7 @@ class CustomersTest extends TestCase
         $this->assertEquals('Test Customer', $customer->Name);
     }
 
-    /** @test */
+    #[Test]
     function a_customer_can_be_deleted()
     {
         $customer = new Customer([

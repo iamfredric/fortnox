@@ -6,10 +6,11 @@ use Iamfredric\Fortnox\Fortnox;
 use Iamfredric\Fortnox\Tests\Fakes\AuthenticatableFake;
 use Iamfredric\Fortnox\Tests\Fakes\FakeClient;
 use Iamfredric\Fortnox\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class AuthorizationsTest extends TestCase
 {
-    /** @test */
+    #[Test]
     function it_generates_auth_url()
     {
         $this->assertEquals(
@@ -18,7 +19,7 @@ class AuthorizationsTest extends TestCase
         );
     }
 
-    /** @test */
+    #[Test]
     function it_obtains_access_token()
     {
         FakeClient::when('POST', 'https://apps.fortnox.se/oauth-v1/token', [
@@ -38,7 +39,7 @@ class AuthorizationsTest extends TestCase
         $this->assertEquals('Bearer', $response['token_type']);
     }
 
-    /** @test */
+    #[Test]
     function it_refreshes_token()
     {
         $authenticatable = new AuthenticatableFake();
